@@ -14,13 +14,13 @@ const cohere = new CohereClient({
 });
 
 
-// Middleware
+// Middlewares
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const MAX_INGREDIENTES = 10;
 
-
+//Funciones Controllers
 function limpiarJSON(texto) {
     try {
         const jsonMatch = texto.match(/\{[\s\S]*\}/);
@@ -155,7 +155,7 @@ FORMATO JSON REQUERIDO:
         console.error('Error en generarReceta:', error);
         res.status(500).json({
             success: false,
-            error: error.message || 'Error inesperado al generar la receta'
+            error: error.message
         });
     }
 });
