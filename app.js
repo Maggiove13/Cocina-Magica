@@ -18,8 +18,18 @@ const cohere = new CohereClient({
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
+const MAX_INGREDIENTES = 10;
 
 
+function limpiarJSON(texto) {
+    try {
+        const jsonMatch = texto.match(/\{[\s\S]*\}/);
+        if (!jsonMatch) return null;
+        return JSON.parse(jsonMatch[0]);
+    } catch (error) {
+        return null;
+    }
+}
 
 
 app.listen(PORT, () => {
