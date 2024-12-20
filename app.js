@@ -32,6 +32,19 @@ function limpiarJSON(texto) {
 }
 
 
+function validarReceta(receta) {
+    const camposRequeridos = [
+        'nombre', 'tiempo_preparacion', 'dificultad', 'porciones', 
+        'ingredientes', 'pasos', 'valor_nutricional', 'tips'
+    ];
+    
+    return camposRequeridos.every(campo => 
+        receta.hasOwnProperty(campo) && 
+        (!Array.isArray(receta[campo]) || receta[campo].length > 0)
+    );
+}
+
+
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
