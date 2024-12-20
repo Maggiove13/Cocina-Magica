@@ -11,3 +11,9 @@ function agregarIngrediente() {
         input.value = '';
     }
 }
+
+
+function obtenerIngredientes() {
+    return Array.from(document.getElementById('lista-ingredientes').children)
+        .map(li => li.textContent.trim());
+}
