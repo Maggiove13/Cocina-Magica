@@ -88,3 +88,42 @@ async function generarReceta() {
         document.getElementById('loading').classList.add('d-none');
     }
 }
+
+
+function mostrarReceta(receta) {
+    if (!receta || !receta.nombre || !receta.ingredientes || !receta.pasos || !receta.valor_nutricional || !receta.tips) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'La receta generada está incompleta'
+        });
+        return;
+    }
+
+    const resultadoReceta = document.getElementById('resultado-receta');
+    resultadoReceta.classList.remove('d-none');
+
+    document.getElementById('receta-titulo').textContent = receta.nombre;
+    document.getElementById('tiempo-preparacion').textContent = `Tiempo: ${receta.tiempo_preparacion}`;
+    document.getElementById('dificultad').textContent = `Dificultad: ${receta.dificultad}`;
+    document.getElementById('porciones').textContent = `Porciones: ${receta.porciones}`;
+    document.getElementById('calorias').textContent = `Calorías: ${receta.valor_nutricional.calorias}`;
+
+    document.getElementById('receta-ingredientes').innerHTML = receta.ingredientes
+        .map(ingrediente => `<li class="list-group-item">${ingrediente}</li>`)
+        .join('');
+
+    document.getElementById('valor-nutricional').innerHTML = `
+        <p>Proteínas: ${receta.valor_nutricional.proteinas}</p>
+        <p>Carbohidratos: ${receta.valor_nutricional.carbohidratos}</p>
+        <p>Grasas: ${receta.valor_nutricional.grasas}</p>
+    `;
+
+    document.getElementById('receta-pasos').innerHTML = receta.pasos
+        .map(paso => `<li>${paso}</li>`)
+        .join('');
+
+    document.getElementById('receta-tips').innerHTML = receta.tips
+        .map(tip => `<li>${tip}</li>`)
+        .join('');
+}
