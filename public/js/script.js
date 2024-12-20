@@ -127,3 +127,12 @@ function mostrarReceta(receta) {
         .map(tip => `<li>${tip}</li>`)
         .join('');
 }
+
+
+
+document.getElementById('ingrediente').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        agregarIngrediente();
+    }
+});
