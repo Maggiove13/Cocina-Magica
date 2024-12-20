@@ -9,7 +9,6 @@ CocineroVirtual es una aplicación web que utiliza inteligencia artificial para 
 - Información nutricional detallada
 - Pasos de preparación paso a paso
 - Tips y consejos de cocina
-- Sistema de guardado de recetas favoritas
 - Interfaz responsiva y amigable
 
 ## Requisitos Previos 📋
@@ -17,7 +16,6 @@ CocineroVirtual es una aplicación web que utiliza inteligencia artificial para 
 - Node.js (v14 o superior)
 - NPM (v6 o superior)
 - Una cuenta en Cohere y una API key
-- Git (opcional, para clonar el repositorio)
 
 ## Instalación 🚀
 
@@ -42,12 +40,6 @@ COHERE_API_KEY=tu_api_key_aqui
 1. La aplicación está configurada para ejecutarse en el puerto 3001 por defecto. Puedes modificar esto en el archivo `app.js`:
 ```javascript
 const PORT = 3001;
-```
-
-2. Si necesitas habilitar CORS, descomenta las siguientes líneas en `app.js`:
-```javascript
-//const cors = require('cors');
-//app.use(cors());
 ```
 
 ## Uso 💫
@@ -76,7 +68,7 @@ project/
 │   ├── css/
 │   │   └── styles.css  # Estilos de la aplicación
 │   ├── js/
-│   │   └── main.js     # JavaScript del cliente
+│   │   └── script.js     # JavaScript del cliente
 │   └── index.html      # Página principal
 └── .env               # Variables de entorno
 ```
